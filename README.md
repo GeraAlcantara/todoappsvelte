@@ -45,3 +45,21 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from "svelte/store";
 export default writable(0);
 ```
+
+### Avatar picture Sources
+
+Foto de <a href="https://unsplash.com/es/@caleb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Caleb Hernandez Belmonte</a> en <a href="https://unsplash.com/es/fotos/QunXlN13l0U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/@clozano_jpg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Carlos Lozano</a> en <a href="https://unsplash.com/es/fotos/PSXib-VDL2A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/es/@timmossholder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Mossholder</a> en <a href="https://unsplash.com/es/fotos/8beYvX-bRgo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/fr/@eduardojcontreras?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eduardo Josué Contreras Álvarez</a> en <a href="https://unsplash.com/es/fotos/aXW83vU-Rbc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/fr/@seteph?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Allef Vinicius</a> en <a href="https://unsplash.com/es/fotos/3TSyMrZj5ik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/@markfarias?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mark Farías</a> en <a href="https://unsplash.com/es/fotos/dt60oksDTx8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/@sangriasenorial?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sangria Señorial</a> en <a href="https://unsplash.com/es/fotos/jdvLz4_LAQk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Foto de <a href="https://unsplash.com/@omarlopez1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Omar Lopez</a> en <a href="https://unsplash.com/es/fotos/hKflZP1MtLU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
