@@ -44,6 +44,10 @@
   //implement a svelte self to create columns TODO, IN PROGRESS, DONE and move the cards between them and update the store with the new status
 </script>
 
+<svelte:head>
+  <title>Todo App made with svelte</title>
+</svelte:head>
+
 <main>
   <section class="wrapperColumn">
     <div class="colorband colorband-green" />
