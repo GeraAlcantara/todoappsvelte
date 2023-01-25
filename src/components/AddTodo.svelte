@@ -1,9 +1,23 @@
 <script>
-  let data = {
-    title: "",
-    description: "",
-    priority: "",
-  };
+  import { createEventDispatcher } from "svelte";
+  // dispatch values from form
+  const dispatch = createEventDispatcher();
+  // create a new todo object
+
+  function newTodo() {
+    dispatch("newTodo", {
+      title: textTitle,
+      description: txtDesc,
+      priority: selectedPriority,
+    });
+  }
+  function handleNewTodo() {
+    newTodo();
+    textTitle = "";
+    txtDesc = "";
+    selectedPriority = "";
+  }
+
   let textTitle = "";
   let txtDesc = "";
   let selectedPriority = "";
@@ -14,7 +28,7 @@
     },
     {
       id: 2,
-      name: "Medium",
+      name: "Med",
     },
     {
       id: 3,
@@ -24,7 +38,7 @@
 </script>
 
 <div class="addTodos-wrapper">
-  <form on:submit|preventDefault>
+  <form on:submit|preventDefault={handleNewTodo}>
     <label for="priority">
       <h2>Select Priority</h2>
       <select name="priority" bind:value={selectedPriority}>
@@ -47,10 +61,10 @@
     <button>Add todo</button>
   </form>
 </div>
-<p>Selected priority {selectedPriority ? selectedPriority : "waiting"}</p>
-<p>Todo title: {textTitle}</p>
-<p>Todo description: {txtDesc}</p>
 
+<!-- <p>Selected priority {selectedPriority ? selectedPriority : "waiting"}</p>
+<p>Todo title: {textTitle}</p>
+<p>Todo description: {txtDesc}</p> -->
 <style lang="scss">
   @use "../variables.scss" as *;
   .addTodos {

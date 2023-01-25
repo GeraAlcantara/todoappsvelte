@@ -7,7 +7,7 @@ export const status = {
   done: "done",
 };
 
-export const todosList = writable([
+export const CARDS = writable([
   {
     id: 1,
     priority: "high",

@@ -1,10 +1,33 @@
 <script>
+  import { CARDS } from "./lib/data.js";
   import AddTodo from "./components/AddTodo.svelte";
   import Card from "./components/Card.svelte";
   import SectionTitle from "./components/SectionTitle.svelte";
-  import { todosList } from "./lib/data.js";
-  const todos = $todosList;
-  let newtodo = true;
+
+  // sort the id of the todos
+
+  let newtodo = false;
+  function handleNewTodo() {
+    newtodo = true;
+  }
+
+  function handleAddTodo(event) {
+    console.log(event.detail.description.toLowerCase());
+    let data = {
+      id: $CARDS.length + 1,
+      priority: event.detail.priority.toLowerCase(),
+      title: event.detail.title,
+      description: event.detail.description,
+      comments: 0,
+      attachments: 0,
+      status: "todo",
+      avatar: "/images/avatar_2.jpg",
+    };
+    // update the store with the new todo in a functional paradigm
+    CARDS.update((todos) => [...todos, data]);
+    newtodo = false;
+  }
+
   // 1.- add a new todo input form
   // add a new todo button submit to write to store
   // add a handle to delete a todo base on id
@@ -17,12 +40,13 @@
 <main>
   <section class="wrapperColumn">
     <div class="colorband colorband-green" />
-    <SectionTitle sectionName="TODO" />
+    <SectionTitle sectionName="TODO" on:click={handleNewTodo} />
     <!-- each todos as todo -->
     {#if newtodo}
-      <AddTodo />
+      <AddTodo on:newTodo={handleAddTodo} />
     {/if}
-    {#each todos as todo (todo.id)}
+
+    {#each $CARDS.sort((a, b) => b.id - a.id) as todo (todo.id)}
       {#if todo.status === "todo"}
         <Card
           title={todo.title}
@@ -39,7 +63,7 @@
     <div class="colorband colorband-orange" />
     <SectionTitle sectionName="In Progress" />
     <!-- each todos as todo -->
-    {#each todos as todo (todo.id)}
+    {#each $CARDS as todo (todo.id)}
       {#if todo.status === "inProgress"}
         <Card
           title={todo.title}
@@ -54,9 +78,9 @@
   </section>
   <section class="wrapperColumn">
     <div class=" colorband colorband-blue" />
-    <SectionTitle sectionName="Review" />
+    <SectionTitle sectionName="Done" />
     <!-- each todos as todo -->
-    {#each todos as todo}
+    {#each $CARDS as todo}
       {#if todo.status === "done"}
         <Card
           title={todo.title}
