@@ -1,14 +1,15 @@
 <script>
-  import { CARDS } from "./lib/data.js";
+  import { CARDS, CardsStore } from "./lib/data.js";
   import AddTodo from "./components/AddTodo.svelte";
   import Card from "./components/Card.svelte";
   import SectionTitle from "./components/SectionTitle.svelte";
+  import { uid } from "./lib/data.js";
 
   // sort the id of the todos
 
   let newtodo = false;
   function handleNewTodo() {
-    newtodo = true;
+    newtodo = !newtodo;
   }
 
   function handleAddTodo(event) {
@@ -20,7 +21,7 @@
     }
 
     let data = {
-      id: $CARDS.length + 1,
+      id: uid(),
       priority: priority.toLowerCase(),
       title: title,
       description: description,
@@ -30,7 +31,7 @@
       avatar: "/images/avatar_2.jpg",
     };
     // update the store with the new todo in a functional paradigm
-    CARDS.update((todos) => [...todos, data]);
+    CardsStore.update((todos) => [...todos, data]);
     newtodo = false;
   }
 
@@ -46,13 +47,14 @@
 <main>
   <section class="wrapperColumn">
     <div class="colorband colorband-green" />
-    <SectionTitle sectionName="TODO" on:click={handleNewTodo} />
+    <SectionTitle sectionName="TODO" on:click={handleNewTodo} open={newtodo} />
     <!-- each todos as todo -->
     {#if newtodo}
       <AddTodo on:newTodo={handleAddTodo} />
     {/if}
+    <!-- todo: new todo card to top of the list -->
 
-    {#each $CARDS.sort((a, b) => b.id - a.id) as todo (todo.id)}
+    {#each $CardsStore as todo (todo.id)}
       {#if todo.status === "todo"}
         <Card
           title={todo.title}
@@ -69,7 +71,7 @@
     <div class="colorband colorband-orange" />
     <SectionTitle sectionName="In Progress" />
     <!-- each todos as todo -->
-    {#each $CARDS as todo (todo.id)}
+    {#each $CardsStore as todo (todo.id)}
       {#if todo.status === "inProgress"}
         <Card
           title={todo.title}
@@ -86,7 +88,7 @@
     <div class=" colorband colorband-blue" />
     <SectionTitle sectionName="Done" />
     <!-- each todos as todo -->
-    {#each $CARDS as todo}
+    {#each $CardsStore as todo}
       {#if todo.status === "done"}
         <Card
           title={todo.title}
@@ -152,10 +154,15 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     padding: 1rem;
     background-color: $bgSectionColor;
     border-radius: 20px;
+    @include media("md") {
+      max-width: 450px;
+    }
   }
 </style>

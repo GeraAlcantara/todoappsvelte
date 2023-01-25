@@ -62,6 +62,7 @@
     background-color: $bgCardColor;
     border-radius: 1rem;
     max-width: 400px;
+    min-width: 95%;
     padding: 1rem;
     display: flex;
     flex-direction: column;

@@ -1,15 +1,37 @@
 // import store from svelte
+import { persitStore } from "./persiststore";
 import { writable } from "svelte/store";
-// dos objetos in progress y en review
+
+// seudo uid generator
+export const uid = () => Math.random().toString(34).slice(2);
+
+const defaultColumns = [
+  {
+    id: uid(),
+    title: "TODO",
+    cards: [],
+  },
+  {
+    id: uid(),
+    title: "In Progress",
+    cards: [],
+  },
+  {
+    id: uid(),
+    title: "Done",
+    cards: [],
+  },
+];
+
 export const status = {
   todo: "todo",
   inProgress: "inProgress",
   done: "done",
 };
 
-export const CARDS = writable([
+export const CARDS = [
   {
-    id: 1,
+    id: uid(),
     priority: "high",
     title: "Research and strategy for upcoming projects",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -19,7 +41,7 @@ export const CARDS = writable([
     status: status.inProgress,
   },
   {
-    id: 2,
+    id: uid(),
     priority: "med",
     title: "Account profile flow diagrams",
     description: "consectetur adipisicing elit. Quisquam, quod lore ipsum dolor sit amet.",
@@ -29,7 +51,7 @@ export const CARDS = writable([
     status: status.inProgress,
   },
   {
-    id: 3,
+    id: uid(),
     priority: "low",
     title: "Slide template for client pitch project",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -39,7 +61,7 @@ export const CARDS = writable([
     status: status.inProgress,
   },
   {
-    id: 4,
+    id: uid(),
     priority: "low",
     title: "Review administrator console designs.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -49,7 +71,7 @@ export const CARDS = writable([
     status: status.inProgress,
   },
   {
-    id: 5,
+    id: uid(),
     priority: "low",
     title: "Dashboard layout design.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -59,7 +81,7 @@ export const CARDS = writable([
     status: status.done,
   },
   {
-    id: 6,
+    id: uid(),
     priority: "high",
     title: "Social media posts.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -69,7 +91,7 @@ export const CARDS = writable([
     status: status.done,
   },
   {
-    id: 7,
+    id: uid(),
     priority: "low",
     title: "Shopping cart and product catalog wireframes.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -79,7 +101,7 @@ export const CARDS = writable([
     status: status.done,
   },
   {
-    id: 8,
+    id: uid(),
     priority: "med",
     title: "End user flow charts.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -89,7 +111,7 @@ export const CARDS = writable([
     status: status.done,
   },
   {
-    id: 9,
+    id: uid(),
     priority: "low",
     title: "User interface design.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -99,7 +121,7 @@ export const CARDS = writable([
     status: status.todo,
   },
   {
-    id: 10,
+    id: uid(),
     priority: "low",
     title: "User stories design.",
     description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -108,4 +130,6 @@ export const CARDS = writable([
     avatar: "/images/avatar_2.jpg",
     status: status.todo,
   },
-]);
+];
+
+export const CardsStore = persitStore("cards", CARDS);

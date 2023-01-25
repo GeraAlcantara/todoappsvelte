@@ -79,6 +79,7 @@
       padding: 1rem;
       @include media("lg") {
         gap: 2rem;
+        padding: 2rem;
       }
       h2 {
         line-height: normal;
