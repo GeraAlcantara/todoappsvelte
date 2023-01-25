@@ -8,7 +8,13 @@
   export let comments = 1;
   export let attachments = 3;
   export let avatarsrc = "images/avatar_1.jpg";
-  export let priority = "high";
+  // the type is string and could be "high" | "med" | "low"
+  /**
+   * @type {string} priority
+   * @description Priority of the card
+   * @example "high" | "medium" | "low"
+   */
+  export let priority;
 </script>
 
 <div class="card">

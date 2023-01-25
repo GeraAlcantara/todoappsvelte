@@ -1,10 +1,13 @@
+// import store from svelte
+import { writable } from "svelte/store";
 // dos objetos in progress y en review
 export const status = {
+  todo: "todo",
   inProgress: "inProgress",
-  review: "review",
+  done: "done",
 };
 
-export const todosList = [
+export const todosList = writable([
   {
     id: 1,
     priority: "high",
@@ -53,7 +56,7 @@ export const todosList = [
     comments: 1,
     attachments: 2,
     avatar: "/images/avatar_5.jpg",
-    status: status.review,
+    status: status.done,
   },
   {
     id: 6,
@@ -63,7 +66,7 @@ export const todosList = [
     comments: 3,
     attachments: 2,
     avatar: "/images/avatar_6.jpg",
-    status: status.review,
+    status: status.done,
   },
   {
     id: 7,
@@ -73,7 +76,7 @@ export const todosList = [
     comments: 1,
     attachments: 3,
     avatar: "/images/avatar_7.jpg",
-    status: status.review,
+    status: status.done,
   },
   {
     id: 8,
@@ -83,6 +86,26 @@ export const todosList = [
     comments: 2,
     attachments: 2,
     avatar: "/images/avatar_8.jpg",
-    status: status.review,
+    status: status.done,
   },
-];
+  {
+    id: 9,
+    priority: "low",
+    title: "User interface design.",
+    description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    comments: 1,
+    attachments: 3,
+    avatar: "/images/avatar_1.jpg",
+    status: status.todo,
+  },
+  {
+    id: 10,
+    priority: "low",
+    title: "User stories design.",
+    description: "lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    comments: 1,
+    attachments: 2,
+    avatar: "/images/avatar_2.jpg",
+    status: status.todo,
+  },
+]);

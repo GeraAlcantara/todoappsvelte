@@ -2,19 +2,9 @@
   export let priority;
 </script>
 
-{#if priority === "high"}
-  <div class="high">
-    <span>{priority} priority </span>
-  </div>
-{:else if priority === "med"}
-  <div class="medium">
-    <span>{priority} priority </span>
-  </div>
-{:else if priority === "low"}
-  <div class="low">
-    <span>{priority} priority </span>
-  </div>
-{/if}
+<div class={priority}>
+  <span>{priority} priority </span>
+</div>
 
 <style lang="scss">
   div {
@@ -35,7 +25,7 @@
   .high {
     background: $gradientHigh;
   }
-  .medium {
+  .med {
     background: $gradientMed;
   }
   .low {
