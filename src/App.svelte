@@ -12,12 +12,18 @@
   }
 
   function handleAddTodo(event) {
-    console.log(event.detail.description.toLowerCase());
+    let [title, description, priority] = [event.detail.title, event.detail.description, event.detail.priority];
+    /* console.log(`title: ${title}, description: ${description}, priority: ${priority}`); */
+    if (title === "" || priority === "") {
+      alert("Please fill all the fields");
+      return;
+    }
+
     let data = {
       id: $CARDS.length + 1,
-      priority: event.detail.priority.toLowerCase(),
-      title: event.detail.title,
-      description: event.detail.description,
+      priority: priority.toLowerCase(),
+      title: title,
+      description: description,
       comments: 0,
       attachments: 0,
       status: "todo",

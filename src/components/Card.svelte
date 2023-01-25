@@ -20,7 +20,9 @@
 <div class="card">
   <TagPriority {priority} />
   <h2>{title}</h2>
-  <p>{description}</p>
+  {#if description}
+    <p>{description}</p>
+  {/if}
   <!-- Component icons below -->
   <div class="infoIcons-wrapper">
     <div class="icons-container">

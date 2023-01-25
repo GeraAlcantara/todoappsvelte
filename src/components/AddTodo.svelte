@@ -41,7 +41,7 @@
   <form on:submit|preventDefault={handleNewTodo}>
     <label for="priority">
       <h2>Select Priority</h2>
-      <select name="priority" bind:value={selectedPriority}>
+      <select name="priority" bind:value={selectedPriority} required>
         {#each priorities as priority}
           <option value={priority.name}>{priority.name}</option>
         {/each}
@@ -50,7 +50,7 @@
 
     <label for="title">
       <h2>Todo Title</h2>
-      <input name="title" type="text" placeholder="Add todo chavo 🚀" bind:value={textTitle} />
+      <input name="title" type="text" placeholder="Add todo chavo 🚀" bind:value={textTitle} required />
     </label>
 
     <label for="description">
@@ -67,15 +67,19 @@
 <p>Todo description: {txtDesc}</p> -->
 <style lang="scss">
   @use "../variables.scss" as *;
+  @use "../sass/utils.scss" as *;
   .addTodos {
     &-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
-
-      gap: 2rem;
+      gap: 1rem;
       background-color: $bgCardColor;
       border-radius: 10px;
+      padding: 1rem;
+      @include media("lg") {
+        gap: 2rem;
+      }
       h2 {
         line-height: normal;
         margin: 0;
@@ -84,7 +88,7 @@
       }
       form {
         width: 100%;
-        padding: 1rem;
+
         display: flex;
         flex-direction: column;
         gap: 1rem;
