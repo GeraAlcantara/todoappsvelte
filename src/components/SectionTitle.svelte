@@ -55,7 +55,7 @@
     svg {
       width: 0.75rem;
       height: 0.75rem;
-      transition: all 0.1s ease-in-out;
+      /*  transition: all 0.1s ease-in-out; */
     }
     &:hover {
       background-color: $slatan-200;

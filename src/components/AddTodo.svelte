@@ -62,9 +62,6 @@
   </form>
 </div>
 
-<!-- <p>Selected priority {selectedPriority ? selectedPriority : "waiting"}</p>
-<p>Todo title: {textTitle}</p>
-<p>Todo description: {txtDesc}</p> -->
 <style lang="scss">
   @use "../variables.scss" as *;
   @use "../sass/utils.scss" as *;
