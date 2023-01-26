@@ -59,7 +59,7 @@
     // json y data could be one liner but I like to be verbose
     const json = event.dataTransfer.getData("text/plain");
     const data = JSON.parse(json);
-    console.log(data);
+
     // remover the card from column
     // Update the store
     BoardStore.update((columns) => {
@@ -92,7 +92,7 @@
 </script>
 
 <!-- key react en svelte es on each block add (column.id) -->
-{#each $BoardStore as column, ColumnIndex (column.id)}
+{#each $BoardStore as column, ColumnIndex (column)}
   <section class="wrapperColumn">
     <div
       class={clsx("colorband", {
@@ -126,7 +126,7 @@
           </div>
         {/if}
 
-        {#each column.cards as card, cardIndex (card)}
+        {#each column.cards as card, cardIndex (card.id)}
           <div class="itemCard" in:receive={{ key: cardIndex }} out:send={{ key: cardIndex }} animate:flip>
             <li draggable="true" on:dragstart={(event) => dragStart(event, ColumnIndex, cardIndex)}>
               <Card
@@ -149,21 +149,11 @@
   @use "../sass/utils" as *;
   @use "../variables.scss" as *;
 
-  .hovering {
-    border-color: orange;
-    border: 1px solid orange;
-  }
   .itemCard {
     display: inline-flex;
     width: 100%;
   }
-  ul {
-    width: 100%;
-    display: flex; /* required for drag & drop to work when .item display is inline */
-    flex-direction: column;
-    min-height: calc(100vh - 150px); /* needed when empty */
-    padding: 10px;
-  }
+
   .colorband {
     background-color: red;
     position: absolute;
@@ -200,16 +190,19 @@
       background-color: $bgSectionColor;
     }
   }
-  //reset ul styles
+
+  .hovering {
+    border-color: orange;
+    border: 1px solid orange;
+  }
   ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
+    display: flex; /* required for drag & drop to work when .item display is inline */
     flex-direction: column;
+    min-height: calc(100vh - 150px); /* needed when empty */
+    padding: 0;
+    padding: 0.5rem;
     gap: 1rem;
-    align-items: center;
   }
   // reset li styles
   li {
