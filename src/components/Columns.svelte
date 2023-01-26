@@ -110,10 +110,13 @@
     width: 100%;
     max-width: 450px;
     padding: 1rem;
-    background-color: $bgSectionColor;
+    background-color: $bgSectionColor-Dark;
     border-radius: 20px;
     @include media("md") {
       max-width: 450px;
+    }
+    @media (prefers-color-scheme: light) {
+      background-color: $bgSectionColor;
     }
   }
 </style>

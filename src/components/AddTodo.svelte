@@ -74,9 +74,12 @@
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      background-color: $bgCardColor;
+      background-color: $bgCardColor-Dark;
       border-radius: 10px;
       padding: 1rem;
+      @media (prefers-color-scheme: light) {
+        background-color: $bgCardColor;
+      }
       @include media("lg") {
         gap: 2rem;
         padding: 2rem;
@@ -112,9 +115,12 @@
         padding: 1rem;
         border: none;
         border-radius: 0.5rem;
-        background-color: $bgCardColor;
+        background-color: $bgCardColor-Dark;
         box-shadow: 0 0 0 1px $slatan-200;
         font-size: 1.25rem;
+        @media (prefers-color-scheme: light) {
+          background-color: $bgCardColor;
+        }
         &:focus {
           box-shadow: 0 0 0 1px $slatan-200;
         }
@@ -127,9 +133,12 @@
         border: none;
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
-        background-color: $bgCardColor;
+        background-color: $bgCardColor-Dark;
         box-shadow: 0 0 0 1px $slatan-200;
         font-size: 1.25rem;
+        @media (prefers-color-scheme: light) {
+          background-color: $bgCardColor;
+        }
         &:focus {
           box-shadow: 0 0 0 1px $slatan-200;
         }

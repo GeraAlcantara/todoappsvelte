@@ -59,7 +59,7 @@
     background-color: $slatan-200;
   }
   .card {
-    background-color: $bgCardColor;
+    background-color: $bgCardColor-Dark;
     border-radius: 1rem;
     max-width: 400px;
     min-width: 95%;
@@ -68,6 +68,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    @media (prefers-color-scheme: light) {
+      background-color: $bgCardColor;
+    }
     h2 {
       font-size: 1.5rem;
       font-weight: 400;
