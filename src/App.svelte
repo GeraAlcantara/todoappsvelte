@@ -12,11 +12,12 @@
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta property="og:site_name" content="https://sveltetodoboard.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Todo App made with svelte" />
   <meta
     name="description"
     content="Sin saber svelte aprendimos del tutorial lo basico y pusimos el conocimiento en practica aka movimos las manitas y creamos un Todo App pero con tablero Kaban"
   />
-  <meta property="og:title" content="Todo App made with svelte" />
   <meta
     property="og:description"
     content="Sin saber svelte aprendimos del tutorial lo basico y pusimos el conocimiento en practica aka movimos las manitas y creamos un Todo App pero con tablero Kaban"
@@ -25,6 +26,9 @@
     property="og:image"
     content="https://sveltetodoboard.netlify.app/images/socialCardSvelte.jpg"
   /><meta property="og:image:alt" content="Tablero kaban hecho con svelte" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@geralcantara79" />
+  <meta name="twitter:creator" content="@geralcantara79" />
 </svelte:head>
 
 <main>
